@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>添加/编辑-店铺管理员-后台管理-{$systemConfig.SITE_INFO.name_cms}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="{$systemConfig.SITE_INFO.description_cms}" />
+	<meta name="keywords" content="{$systemConfig.SITE_INFO.keyword_cms}" />
+        <include file="Common:comHead" />
+        
+<link href="/Public/css/main.css" rel="stylesheet" />
+<link href="/Public/css/doubleDate.css" rel="stylesheet" />
+<link href="/Public/css/theme.css" rel="stylesheet" />
+
+
+<script src="/Public/uploadimg/jquery.uploadify.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="/Public/uploadimg/uploadify.css">
+
+
+    </head>
+    <body>
+        <div class="wrap"> <include file="Common:head" /> <include file="Common:left" />
+  <div class="center_r">
+    <div class="center">
+      <div class="center_r_t">您的位置：<a href="{:U('Member/dianpu')}" class="a1">店铺管理员</a>>>>编辑/添加 店铺管理员信息</div>
+      <div class="center_t">
+          <form action="" id="form1" name="form1" method="post">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab center_t">
+                <tr>
+                    <td width="120">登录名称：</td>
+                    <td><input <if condition="ACTION_NAME eq 'editAdmin'"> disabled="disabled"</if> name="a_name" id="a_name" type="text" class="required" size="40" value="{$info.a_name}" /></td>
+                </tr>
+                <tr>
+                    <td>密码：</td>
+                    <td><input class="input" name="pwd" class="required" id="pwd" type="password" size="40" value="" /></td>
+                </tr>
+                <tr>
+                    <td>确认密码：</td>
+                    <td><input class="input" name="confirm_pwd" class="required" id="confirm_pwd" type="password" size="40" value="" /></td>
+                </tr>
+                
+                <tr>
+                    <td>公司名称：</td>
+                    <td><input type="text" name="dinfo[company]" size="40" id="company" value="{$info.company}" /></td>
+                </tr>
+                <tr>
+                    <td>法人：</td>
+                    <td>
+                        <input type="text" name="dinfo[faren]" size="40" id="faren" value="{$info.faren}" />
+                    </td>
+                </tr>                
+                
+                <tr>
+                    <td>上传营业执照：</td>
+                    <td>
+                        <input id="file_upload" name="file_upload" type="file" multiple="true">
+            <div id="some_file_queue">
+
+            </div>
+            <div class="imgList" id="image"></div>
+            <input type="hidden" name="dinfo[yingyezhizhao]" id="yingyezhizhao" value="{$info.yingyezhizhao}" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>联系人姓名：</td>
+                    <td><input type="text" name="dinfo[lxrname]" size="40" id="lxrname" value="{$info[lxrname]}" /></td>
+                </tr>                 
+                
+                <tr>
+                    <td>联系人电话：</td>
+                    <td><input type="text" name="dinfo[phone]" size="40" id="phone" value="{$info[phone]}" /></td>
+                </tr>
+                
+                <tr>
+                    <td>客服电话：</td>
+                    <td><input type="text" name="dinfo[kefu_phone]" size="40" id="kefu_phone" value="{$info[kefu_phone]}" /></td>
+                </tr>  
+                
+                <tr>
+                    <td>收藏数值：</td>
+                    <td><input type="text" name="dinfo[collect]"size="10" id="collect" value="{$info[collect]}" /></td>
+                </tr>  
+                <tr>
+                    <td>口碑值：</td>
+                    <td><input type="text" name="dinfo[koubei]" size="10" id="koubei" value="{$info[koubei]}" /></td>
+                </tr>  
+                <tr>
+                    <td>级别：</td>
+                    <td><input type="text" name="dinfo[jibie]" size="10" id="jibie" value="{$info[jibie]}" /></td>
+                </tr>  
+
+                <tr>
+                    <td>省份/城市：</td>
+                    <td>
+                        <select id="pro_id" name="pro_id" onchange="getcity('pro_id','city_id')" >
+                            <option value="">请选择省份</option>
+                            <volist id="vo" name="pro_list">
+                            	<option value="{$vo.region_id}" <if condition="$info[pro_id]==$vo[region_id]">selected</if>>{$vo.region_name}</option>
+                            </volist>
+                        </select>
+                        <select id="city_id" name="city_id">
+                            <option value="">请选择市</option>
+                            <if condition="!empty($info[city_id])">
+                            <option value="{$info.city_id}" selected="selected">{$info.cityname}</option>
+                            </if>
+                        </select>
+                    </td>
+                </tr> 
+                <tr>
+                    <td>地址：</td>
+                    <td><input type="text" name="dinfo[dizhi]" size="40" id="dizhi" value="{$info[address]}" /></td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2"><input type="submit" class="btn submit" id="sub" name="sub" value="提交"/></td>
+                    
+                </tr>
+                
+            </table>
+            <input type="hidden" name="aid" value="{$info.a_id}"/>
+        </form>
+      </div>
+    </div>
+    <div class="foot"> <include file="Common:foot" /> </div>
+  </div>
+</div>
+        
+    
+    </body>
+</html>
+<script>
+    $(document).ready(function() {
+        $("#form1").validate({
+            rules:{
+                a_name:{required:true,},
+               
+            },
+            messages:{
+                a_name:{required:"请输入用户名/邮件地址"},
+                
+            }
+        });
+		
+        
+		
+    })
+	
+	 function getcity(proid,cityid){
+	//	 alert(proid+","+cityid);
+//		var pid=$("#"+proid).val();
+		var pid=document.getElementById(proid).value;
+		
+		$.ajax({
+			data:"fid="+pid,
+			cache:false,
+			url:"{:U('Member/getcity')}",
+			type:"POST",
+			dataType:"Json",
+			success: function(msg){
+				
+				if(msg.status==1){
+					$("#"+cityid).empty();
+					var citystr="";
+					var len=msg.data.length;
+					var l;
+					citystr+="<option value=''>请选择</option>";
+					
+					if(len>0){
+						for(l=0;l<len;l++){
+							citystr+="<option value='"+msg.data[l].region_id+"'>"+msg.data[l].region_name+"</option>";
+						}
+					}
+					$("#"+cityid).append(citystr);
+					
+				}
+				
+			}
+					
+		});	
+	}
+	
+</script>
+
+<script>
+            $(function() {
+			$('#file_upload').uploadify({
+				'swf'      : '/Public/uploadimg/uploadify.swf',
+				'uploader' : '{:U("Member/scimg")}',
+				'auto':true, //自动上传
+				'buttonClass':'submit',//给上传按钮一个样式名称
+				//'buttonImage':'/uploadfi/shangchuan.png',//上传按钮加上图片
+				'buttonText':'增加图片',
+				'height':28,//按钮的高度,
+				'width':83,
+				//'checkExisting':'{:U("paicar/check-exists")}',
+				//'debug':true,
+				//'fileObjName':'the_files',
+				'fileSizeLimit':'2048KB',
+				'fileTypeDesc':'Image Files',
+				'fileTypeExts':'*.gif;*.jpg;*.png',
+				//'formData':{'someKey':'11','someOne':'bb'},
+				//'itemTemplate':'<div id="${fileID}" class="uploadify-queue-item">\
+//					<div class="cancel">\
+//						<a href="javascript:$(\'#${instanceID}\').uploadify(\'cancel\', \'${fileID}\')">X</a>\
+//					</div>\
+//					<span class="fileName">${fileName} (${fileSize})</span><span class="data"></span>\
+//					</div>',
+				'method':'post',
+				'multi':true,//是否允许多个文件上传,
+				'queueID'  : 'some_file_queue',
+				'queueSizeLimit':22,	
+				//'removeCompleted':false,	
+				//'removeTimeout':10,//从队列中删除已完成的上传文件，延迟几秒
+				'requeueErrors':true,
+				'onUploadStart':function(file){
+				//	console.log('Attempting to upload: ' + file.name);
+				}
+				,
+				'successTimeout':5,//等待服务器响应几秒提示成功,
+				'uploadLimit':1,//上传文件最大值
+				'onCancel':function(file){
+					//alert('the file '+file.name+' was cancelled');
+				},
+				'onClearQueue' : function(queueItemCount) {
+            		//alert(queueItemCount + ' file(s) were removed from the queue');
+        		},
+				'onUploadComplete':function(file){
+					//console.log(file);
+				},
+				'onUploadSuccess':function (file, data, response) {
+					if(response){
+						//console.log(data);
+						$("#image").html("<image src=/Uploads/product/"+data+" height=100 />");	
+						$("#yingyezhizhao").val(data);
+						
+					}else{
+						alert('图片'+file.name+"上传失败");
+					}
+					//console.log(data);
+					//console.log(response);
+					//console.log(file);
+					//alert('The file ' + data + ' was successfully uploaded with a response of ' + response + ':' + data);
+				},
+				'onQueueComplete' : function(queueData) {
+					//console.log(queueData);
+					//alert(queueData.uploadsSuccessful + ' files were successfully uploaded.');
+				}
+				
+				
+			});
+		});
+        </script>

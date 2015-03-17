@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+
+.login{ width:700px; height:320px; margin:0 auto; background:url(../images/loginbj.jpg) no-repeat; margin-top:242px;}
+.login h1{ text-align:center; font-size:24px; color:#FFF; font-weight:normal; font-size:24px; padding:20px 0;}
+.fromUl li { position: relative; padding:0px 0 0px 300px; line-height:36px; min-height:36px; font-size:14px; color:#fff;}
+.fromUl li label { position:absolute; top:0px; left:0px; padding:0px 0 0px 110px; width:160px; text-align:right; line-height:36px;}
+.fromUl li .input1,.input2{ border:1px #b8b8b8 solid; border:0px/9; border-radius:2px; width:164px; height:25px; line-height: 25px\9; background:#0c486b; color:#fff;}
+.input2{width:84px; }
+.fromUl li input[type=radio] { vertical-align:middle; margin:0 3px;}
+.fromUl li .sub1 { margin-top:12px; width:164px; height:26px; line-height:26px; *line-height:22px; border-top:1px #ffd181 solid; background:#ff8a4e; text-align:center; color:#fff; cursor:pointer; font-family:"微软雅黑";}
+.verification{ margin-left:12px; margin-bottom:-7px; *margin-bottom:-3px;}
+
+

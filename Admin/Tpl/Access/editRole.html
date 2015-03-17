@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>添加编辑角色-权限管理-{$site.SITE_INFO.name}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{$systemConfig.SITE_INFO.description_cms}" />
+<meta name="keywords" content="{$systemConfig.SITE_INFO.keyword_cms}" />
+<include file="Common:comHead" />
+<link href="/Public/css/main.css" rel="stylesheet" />
+<link href="/Public/css/doubleDate.css" rel="stylesheet" />
+<link href="/Public/css/theme.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrap"> <include file="Common:head" /> <include file="Common:left" />
+  <div class="center_r">
+    <div class="center">
+      <div class="center_r_t">您的位置：<a href="{:U('Access/index')}" class="a1">权限管理</a>>><a class="a1" href="{:U('Access/rolelist')}">角色列表</a>>添加/编辑角色</div>
+      <div class="center_t">
+        
+        <form action="" method="post">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="center_t tab">
+            <tr>
+              <td width="120">角色组名称：</td>
+              <td><input name="name" type="text" class="input" size="40" value="{$info.name}" /></td>
+            </tr>
+            <tr>
+              <td>状态：</td>
+              <td><select name="status" style="width: 80px;">
+                  <if condition="$info.status eq 1">
+                    <option value="1" selected>启用</option>
+                    <option value="0">禁用</option>
+                    <else/>
+                    <option value="1">启用</option>
+                    <option value="0" selected>禁用</option>
+                  </if>
+                </select></td>
+            </tr>
+            <tr>
+              <td>父级组ID：</td>
+              <td><select name="pid" style="min-width: 80px;">
+                  {$info.pidOption}
+                </select></td>
+            </tr>
+            <tr>
+              <td>显示排序：</td>
+              <td><input class="input" name="sort" type="text" size="40" value="{$info.sort}" /></td>
+            </tr>
+            <tr>
+              <td>描 述：</td>
+              <td><textarea name="remark" style="width: 400px;">{$info.remark}</textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" name="sub" class="btn submit" id="sub" value="提交" /></td>
+            </tr>
+          </table>
+          <input type="hidden" name="id" value="{$info.id}"/>
+        </form>
+      </div>
+    </div>
+    <div class="foot"> <include file="Common:foot" /> </div>
+  </div>
+</div>
+</body>
+</html>

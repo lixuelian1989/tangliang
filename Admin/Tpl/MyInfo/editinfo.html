@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+<title>{$systemConfig.SITE_INFO.name_cms}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{$systemConfig.SITE_INFO.description_cms}" />
+<meta name="keywords" content="{$systemConfig.SITE_INFO.keyword_cms}" />
+
+<include file="Common:comHead" />
+<link href="/Public/css/main.css" rel="stylesheet" />
+<link href="/Public/css/doubleDate.css" rel="stylesheet" />
+<link href="/Public/css/theme.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <div class="wrap">
+      <include file="Common:head" /> 
+      <!--头部end--> 
+      <include file="Common:left" /> 
+      <!--左边end-->
+      <div class="center_r">
+    <div class="center">
+      <div class="center_r_t">您的位置：<a href="{:U('MyInfo/index')}" class="a1">管理员</a>>>更改个人信息</div>
+      <div class="center_t">
+        <form action="" enctype="multipart/form-data" method="post" name="form1" id="form1">
+    	<input type="hidden" value="{$info.a_id}" id="uid" name="uid" />
+        
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
+          <tr>
+              <th colspan='6'>更改个人信息</th>
+          </tr>
+        <tr>
+          <td width="120" align="right">真实姓名：</td>
+          <td><input type="text" name="info[a_truename]" value="{$info.a_truename}" /></td>
+          <td width="120" align="right">性别：</td>
+          <td><label> <input type="radio" name="info[a_sex]" value="1" 
+              <if condition="$info[a_sex]==1">checked</if>
+              >男</label>
+            <label> <input type="radio" name="info[a_sex]" value="2" 
+              <if condition="$info[a_sex]==2">checked</if>
+              >女</label></td>
+          <td width="120" align="right">生日</td>
+          <td>
+            <input type="text" id="but" name="info[a_birthday]" value="{$info.a_birthday}" />
+            <div class="easyui-calendar" style="width:250px;height:250px; display:none" data-options="formatter:formatDay"></div>
+            <script>
+		var d1 = Math.floor((Math.random()*30)+1);
+		var d2 = Math.floor((Math.random()*30)+1);
+		function formatDay(date){
+			var m = date.getMonth()+1;
+			var d = date.getDate();
+			var opts = $(this).calendar('options');
+			//if (opts.month == m && d == d1){
+				//return '<div class="icon-ok md">' + d + '</div>';
+			//} 
+			//else if (opts.month == m && d == d2){
+				//return '<div class="icon-search md">' + d + '</div>';
+			//}
+			return d;
+		}
+		$("#but").click(function(){
+			$(".easyui-calendar").show();	
+		});
+		$(".easyui-calendar").calendar({
+				onSelect:function(date){
+					var month_selected=(date.getMonth()+1)<=9?"0"+(date.getMonth()+1):(date.getMonth()+1);
+					var day_selected=date.getDate()<=9?"0"+date.getDate():date.getDate();
+					
+					var date_selected=date.getFullYear()+"-"+month_selected+"-"+day_selected;
+					var dateobj=new Date();
+					
+					var month_current=(dateobj.getMonth()+1)<=9?"0"+(dateobj.getMonth()+1):(dateobj.getMonth()+1);
+					var day_current=dateobj.getDate()<=9?"0"+dateobj.getDate():dateobj.getDate();
+					
+					var date_current=dateobj.getFullYear()+"-"+month_current+"-"+day_current;
+					
+					if(date_selected<=date_current){
+					$("#but").val(date_selected);
+					$(".easyui-calendar").hide();
+					}else{
+						alert("所选日期不能大于当前日期");
+					}
+					}
+			});
+	</script>
+            <style scoped>
+		.md{
+			height:16px;
+			line-height:16px;
+			background-position:2px center;
+			text-align:right;
+			font-weight:bold;
+			padding:0 2px;
+			color:red;
+		}
+	</style>
+    
+    </td>
+        </tr>
+        <tr>
+          <td width="120" align="right">电话：</td>
+          <td>
+          <input type="text" name="info[a_telphone]" value="{$info.a_telphone}" />
+          </td>
+          <td width="120" align="right">联系地址：</td>
+          <td>
+          <input type="text" name="info[a_address]" value="{$info.a_address}" />
+          </td>
+          <td width="120" align="right">QQ：</td>
+          <td>
+          <input type="text" name="info[a_qq]" value="{$info.a_qq}" />
+          </td>
+        </tr>
+        <tr>
+          <td width="120" align="right">职位：</td>
+          <td>
+          <input type="text" name="info[a_zhiwei]" value="{$info.a_zhiwei}" />
+          </td>
+          <td width="120" align="right">邮箱：</td>
+          <td><input type="text" name="info[a_email]" value="{$info.a_email}" /></td>
+          <td width="120" align="right"></td>
+          <td></td>
+        </tr>
+                  <tr align='6' ><td>
+                  <input type="submit" name="sub" id="sub" value="提交" />
+                  </td></tr>
+      </table>
+    </form>
+      </div>
+    </div>
+    <div class="foot">
+        <include file="Common:foot" /> 
+    </div>
+  </div>
+    </div>   
+    
+   
+</body>
+</html>

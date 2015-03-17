@@ -1,0 +1,69 @@
+<div class="header">
+  <div class="logo"><img src="/Public/images/logo.jpg" /></div>
+  <div class="headet_r">
+    <div class="header_r_t">
+      <div class="header_r_t_l">></div>
+      <a href="{:U('MyInfo/index')}"><img src="/Public/images/ico1.png" />管理员</a> <a href="{:U('Index/logout')}"><img src="/Public/images/ico3.png" />退出</a> </div>
+    <div class="conter_scroll_w">
+      <div class="conter_scroll_bot">
+        <div class="rollBox"> <img onmousedown="ISL_GoDown()" onmouseup="ISL_StopDown()" onmouseout="ISL_StopDown()"  class="img3" src="/Public/images/s_left.png" />
+          <div class="Cont" id="ISL_Cont">
+            <div class="ScrCont">
+              <div id="List1"> 
+                <!-- 图片列表 begin -->
+                <volist id="vo" name="nodelist" key="k">
+                    
+                    <if condition="$actname==$vo[name]">
+                    <div class="pic a1">
+                        <else/>
+                        <div class="pic">
+                    </if>
+                      <a href="{$vo.url}">
+                    <p><img src="/Public/images/menuico1.png" /></p>
+                    {$vo.title}
+                      </a> </div>
+                </volist>
+                <!--
+                <div class="pic a1"><a href="">
+                  <p><img src="/Public/images/menuico1.png" /></p>
+                  用户中心</a></div>
+                <div class="pic"><a href="">
+                  <p><img src="/Public/images/menuico2.png" /></p>
+                  装修攻略</a></div>
+                <div class="pic"><a href="">
+                  <p><img src="/Public/images/menuico3.png" /></p>
+                  明星工长</a></div>
+                <div class="pic"><a href="">
+                  <p><img src="/Public/images/menuico4.png" /></p>
+                  设计团队</a></div>
+                <div class="pic"><a href="">
+                  <p><img src="/Public/images/menuico5.png" /></p>
+                  团购商家</a></div>
+                <div class="pic"><a href="">
+                  <p><img src="/Public/images/menuico6.png" /></p>
+                  团购活动</a></div>
+                <div class="pic"><a href="">
+                  <p><img src="/Public/images/menuico7.png" /></p>
+                  社区团装</a></div>
+                <div class="pic"><a href="">
+                  <p><img src="/Public/images/menuico8.png" /></p>
+                  装修美图</a></div>
+                <div class="pic"><a href="">
+                  <p><img src="/Public/images/menuico7.png" /></p>
+                  用户中心</a></div>
+                <div class="pic"><a href="">
+                  <p><img src="/Public/images/menuico8.png" /></p>
+                  装修攻略</a></div>
+                -->
+                
+                <!-- 图片列表 end --> 
+              </div>
+              <div id="List2"></div>
+            </div>
+          </div>
+          <img  onmousedown="ISL_GoUp()" onmouseup="ISL_StopUp()" onmouseout="ISL_StopUp()"  class="img4" src="/Public/images/s_right.png" /> </div>
+      </div>
+      <script src="/Public/js/rollBox.js" type="text/javascript"></script> 
+    </div>
+  </div>
+</div>

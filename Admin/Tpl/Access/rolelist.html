@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>角色管理-权限管理-后台管理-{$site.SITE_INFO.name}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{$systemConfig.SITE_INFO.description_cms}" />
+<meta name="keywords" content="{$systemConfig.SITE_INFO.keyword_cms}" />
+<include file="Common:comHead" />
+<link href="/Public/css/main.css" rel="stylesheet" />
+<link href="/Public/css/doubleDate.css" rel="stylesheet" />
+<link href="/Public/css/theme.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrap"> <include file="Common:head" /> <include file="Common:left" />
+  <div class="center_r">
+    <div class="center">
+      <div class="center_r_t">您的位置：<a href="{:U('Access/index')}" class="a1">权限管理</a>>>角色列表</div>
+      <div class="center_t">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab center_t">
+          <thead>
+            <tr class="center_t_t">
+              <td>序号</td>
+              <td>组ID</td>
+              <td>组名</td>
+              <td>描述</td>
+              <td>状态</td>
+              <td>操作</td>
+            </tr>
+          </thead>
+          <volist name="list" id="vo" key="k">
+            <tr align="center" id="{$vo.id}" class="center_t_d">
+              <td>{$k}</td>
+              <td>{$vo.id}</td>
+              <td>{$vo.name}</td>
+              <td align="left">{$vo.remark}</td>
+              <td>{$vo.statusTxt}</td>
+              <td><if condition="$vo.pid eq 0">--
+                  <else/>
+                  <a href="javascript:void(0);" class="opStatus" val="{$vo.status}">{$vo.chStatusTxt}</a><a href="__URL__/editRole?id={$vo.id}" class="edit">编辑</a><a href="__URL__/changeRole?id={$vo.id}" class="edit">权限分配</a></if></td>
+            </tr>
+          </volist>
+        </table>
+      </div>
+    </div>
+    <div class="foot"> <include file="Common:foot" /> </div>
+  </div>
+</div>
+<script type="text/javascript">
+            $(function(){
+                //快捷启用禁用操作
+                $(".opStatus").click(function(){
+                    var obj=$(this);
+                    var id=$(this).parents("tr").attr("id");
+                    var status=$(this).attr("val");
+                    $.getJSON("__URL__/opRoleStatus", { id:id, status:status }, function(json){
+                        if(json.status==1){
+                            //popup.success(json.info);
+                            alert(json.info);
+                            $(obj).attr("val",json.data.status).html(status==1?"启用":"禁用").parents("td").prev().html(status==1?"禁用":"启用");
+                        }else{
+                            alert(json.info);
+                            //popup.alert(json.info);
+                        }
+                    });
+                });
+            });
+        </script>
+</body>
+</html>

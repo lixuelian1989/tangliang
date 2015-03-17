@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>{$systemConfig.SITE_INFO.name_cms}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="{$systemConfig.SITE_INFO.description_cms}" />
+        <meta name="keywords" content="{$systemConfig.SITE_INFO.keyword_cms}" />
+<include file="Common:comHead" />
+<link href="/Public/css/main.css" rel="stylesheet" />
+<link href="/Public/css/doubleDate.css" rel="stylesheet" />
+<link href="/Public/css/theme.css" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="wrap"> <include file="Common:head" /> 
+          <!--头部end--> 
+            <include file="Common:left" />   
+            <!--左边end-->
+            <div class="center_r">
+    <div class="center">
+      <div class="center_r_t">您的位置：<a href="{:U('MyInfo/index')}" class="a1">管理员</a>>>我的个人信息</div>
+      <div class="center_t" style="margin-top: 10px" >
+        
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
+            <th  colspan="6" style="text-align: left">账户信息<a href="{:U('MyInfo/updatepwd')}" style="color:red;">更改密码</a></th>
+                    <tr>
+                        <td width="120" align="right">登录名：</td>
+                        <td>{$info.a_name}</td>
+                        <td width="120" align="right">角色：</td>
+                        <td>{$info.role_name}</td>
+                        <td width="120" align="right">创建时间：</td>
+                        <td>{$info.create_time}</td>
+                    </tr>
+                    <tr>
+                        <td width="120" align="right">最后登录时间：</td>
+                        <td>{$info.last_login}</td>
+                        <td width="120" align="right">最后登录IP：</td>
+                        <td>{$info.last_ip}</td>
+                        <td width="120" align="right"></td>
+                        <td></td>
+                    </tr>
+                    <th colspan='6' style="text-align: left" >个人信息 <a href="{:U('MyInfo/editinfo',array('uid'=>$info[a_id]))}" style="color:red;">编辑</a></th>
+                    <tr>
+                        <td width="120" align="right">真实姓名：</td>
+                        <td>{$info.a_truename}</td>
+                        <td width="120" align="right">性别：</td>
+                        <td>{$info.a_sex}</td>
+                        <td width="120" align="right">生日</td>
+                        <td>{$info.a_birthday}</td>
+                    </tr>
+                    <tr>
+                        <td width="120" align="right">电话：</td>
+                        <td>{$info.a_telphone}</td>
+                        <td width="120" align="right">联系地址：</td>
+                        <td>{$info.a_address}</td>
+                        <td width="120" align="right">QQ：</td>
+                        <td>{$info.a_qq}</td>
+                    </tr>
+                    <tr>
+                        <td width="120" align="right">职位：</td>
+                        <td>{$info.a_zhiwei}</td>
+                        <td width="120" align="right">邮箱：</td>
+                        <td>{$info.a_email}</td>
+                        <td width="120" align="right"></td>
+                        <td></td>
+                    </tr>
+                </table>
+        
+        
+        
+      </div>
+    </div>
+    <div class="foot">
+        <include file="Common:foot" /> 
+    </div>
+  </div>
+            
+            
+            
+        
+            
+        </div>    
+       
+    </body>
+</html>

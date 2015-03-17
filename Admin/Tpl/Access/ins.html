@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>权限管理-后台管理-{$systemConfig.SITE_INFO.name_cms}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{$systemConfig.SITE_INFO.description_cms}" />
+<meta name="keywords" content="{$systemConfig.SITE_INFO.keyword_cms}" />
+<include file="Common:comHead" />
+<link href="/Public/css/main.css" rel="stylesheet" />
+<link href="/Public/css/doubleDate.css" rel="stylesheet" />
+<link href="/Public/css/theme.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrap"> <include file="Common:head" /> 
+  <!--头部end--> 
+  <include file="Common:left" /> 
+  <!--左边end-->
+  <div class="center_r">
+    <div class="center">
+      <div class="center_r_t">您的位置：<a href="{:U('Access/index')}" class="a1">权限管理</a>>><a class="a1" href="{:U('Access/index')}">管理员列表</a>>查看详情</div>
+      <div class="center_t">
+        <form action="" id="form1" name="form1" method="post">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab">
+            <tr>
+              <th width="120">登录名称：</th>
+              <td>{$info.a_name}</td>
+            </tr>
+            <tr>
+              <th>状态：</th>
+              <td><if condition="$info.status eq 1"> 启用
+                  <else/>
+                  禁用 </if></td>
+            </tr>
+            <tr>
+              <th>所属用户组:</th>
+              <td>{$info.role_name}</td>
+            </tr>
+            <tr>
+              <th>备注：</th>
+              <td>{$info.remark}</td>
+            </tr>
+            
+            <tr>
+              <th>真实姓名：</th>
+              <td>{$info.a_truename}</td>
+            </tr>
+            <tr>
+              <th>性别：</th>
+              <td> {$info.a_sex} </td>
+            </tr>
+            <tr>
+              <th>生日：</th>
+              <td> {$info.a_birthday} </td>
+            </tr>
+            <tr>
+              <th>联系电话：</th>
+              <td>{$info[a_telphone]}</td>
+            </tr>
+            <tr>
+              <th>联系地址：</th>
+              <td>{$info[a_address]}</td>
+            </tr>
+            <tr>
+              <th>QQ：</th>
+              <td>{$info[a_qq]}</td>
+            </tr>
+            <tr>
+              <th>职位：</th>
+              <td>{$info[a_zhiwei]}</td>
+            </tr>
+            <tr>
+              <th>Email：</th>
+              <td>{$info[a_email]}</td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+    <div class="foot"> <include file="Common:foot" /> </div>
+  </div>
+</div>
+</body>
+</html>

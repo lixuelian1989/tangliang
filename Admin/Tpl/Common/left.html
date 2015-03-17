@@ -1,0 +1,17 @@
+<div class="tabBox" id="Threetab">
+	      <ul class="tab center_side">
+                    <li></li>
+                    <volist id="vo" name="nodelist2">
+                       
+                        <if condition="$funname==$vo[name]">
+                           <li class="li1"> 
+                               <else/>
+                               <li>
+                        </if>
+		    <img src="/Public/images/sideico_1.png" class="img1" /><img src="/Public/images/sideico.png" class="img1 img2" />
+                        <a href="{$vo.url}">{$vo.title}</a>
+                    </li>
+		        </volist>
+
+	      </ul>
+</div>

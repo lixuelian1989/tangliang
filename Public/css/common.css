@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*基本设置*/
+::selection { background:#54d7e7; color:#fff;}
+::-moz-selection { background:#54d7e7; color:#fff;}
+::-webkit-selection { background:#54d7e7; color:#fff;}
+
+body{margin:0;padding:0;font-size:14px; font-family:"微软雅黑";}/*文档清零*/
+
+div,ul,li,p,form,h1,h2,h3,h4,h5,input,dl,dt,dd,fieldset,select,option{margin:0;padding:0;}/*边界元素清零*/
+
+ul,li{list-style:none;}/*去除列表符号*/
+
+img,input{border:none;}/*去除图片按钮边框*/
+
+a{text-decoration:none;}/*去除超链接下划线*/
+

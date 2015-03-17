@@ -1,0 +1,72 @@
+[ 2015-03-05T17:53:29+08:00 ] 114.241.182.181 /manager.php/Index/city.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000470s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000531s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000357s ]
+SQL: SHOW COLUMNS FROM `t_node` [ RunTime:0.000898s ]
+SQL: SELECT * FROM `t_node` WHERE ( pid=1 and  status=1 and is_menu=1 ) ORDER BY sort asc  [ RunTime:0.000290s ]
+SQL: SHOW COLUMNS FROM `t_node` [ RunTime:0.000471s ]
+SQL: SELECT `id` FROM `t_node` WHERE ( name='Index' ) LIMIT 1   [ RunTime:0.000163s ]
+SQL: SHOW COLUMNS FROM `t_node` [ RunTime:0.000437s ]
+SQL: SELECT * FROM `t_node` WHERE ( pid=2 and  status=1 and is_menu=1 ) ORDER BY sort asc  [ RunTime:0.000192s ]
+SQL: SHOW COLUMNS FROM `t_city` [ RunTime:0.000321s ]
+ERR: 1146:Table 'tangliangdbs.t_city' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `t_city`
+SQL: SHOW COLUMNS FROM `t_area` [ RunTime:0.000416s ]
+SQL: SELECT * FROM `t_area`  [ RunTime:0.000581s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant name - assumed 'name' /mnt/b/temp/Admin/Cache/801d14ad92c4331b13dc925d74031733.php 第 42 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /mnt/b/temp/Admin/Cache/801d14ad92c4331b13dc925d74031733.php 第 42 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /mnt/b/temp/Admin/Cache/801d14ad92c4331b13dc925d74031733.php 第 42 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /mnt/b/temp/Admin/Cache/801d14ad92c4331b13dc925d74031733.php 第 96 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /mnt/b/temp/Admin/Cache/801d14ad92c4331b13dc925d74031733.php 第 96 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.011467s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011531s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.000970s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.000959s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000133s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000406s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002614s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000786s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000902s ]
+
+[ 2015-03-05T17:56:38+08:00 ] 114.241.182.181 /manager.php/Index/city.html
+INFO: [ route_check ] --START--
+INFO: CheckRoute Behavior ::run [ RunTime:0.000464s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000543s ]
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.000349s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000392s ]
+SQL: SHOW COLUMNS FROM `t_node` [ RunTime:0.000861s ]
+SQL: SELECT * FROM `t_node` WHERE ( pid=1 and  status=1 and is_menu=1 ) ORDER BY sort asc  [ RunTime:0.000306s ]
+SQL: SHOW COLUMNS FROM `t_node` [ RunTime:0.000452s ]
+SQL: SELECT `id` FROM `t_node` WHERE ( name='Index' ) LIMIT 1   [ RunTime:0.000182s ]
+SQL: SHOW COLUMNS FROM `t_node` [ RunTime:0.000441s ]
+SQL: SELECT * FROM `t_node` WHERE ( pid=2 and  status=1 and is_menu=1 ) ORDER BY sort asc  [ RunTime:0.000190s ]
+SQL: SHOW COLUMNS FROM `t_city` [ RunTime:0.000301s ]
+ERR: 1146:Table 'tangliangdbs.t_city' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `t_city`
+SQL: SHOW COLUMNS FROM `t_area` [ RunTime:0.000404s ]
+SQL: SELECT * FROM `t_area`  [ RunTime:0.000599s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Use of undefined constant name - assumed 'name' /mnt/b/temp/Admin/Cache/801d14ad92c4331b13dc925d74031733.php 第 42 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /mnt/b/temp/Admin/Cache/801d14ad92c4331b13dc925d74031733.php 第 42 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /mnt/b/temp/Admin/Cache/801d14ad92c4331b13dc925d74031733.php 第 42 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /mnt/b/temp/Admin/Cache/801d14ad92c4331b13dc925d74031733.php 第 96 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /mnt/b/temp/Admin/Cache/801d14ad92c4331b13dc925d74031733.php 第 96 行.
+INFO: ParseTemplate Behavior ::run [ RunTime:0.015026s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015078s ]
+INFO: [ view_filter ] --START--
+INFO: ContentReplace Behavior ::run [ RunTime:0.001461s ]
+INFO: TokenBuild Behavior ::run [ RunTime:0.001006s ]
+INFO: WriteHtmlCache Behavior ::run [ RunTime:0.000152s ]
+INFO: ShowRuntime Behavior ::run [ RunTime:0.000603s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003357s ]
+INFO: [ view_end ] --START--
+INFO: ShowPageTrace Behavior ::run [ RunTime:0.000592s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000693s ]
+

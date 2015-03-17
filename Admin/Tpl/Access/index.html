@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+<title>权限管理-后台管理-{$systemConfig.SITE_INFO.name_cms}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{$systemConfig.SITE_INFO.description_cms}" />
+<meta name="keywords" content="{$systemConfig.SITE_INFO.keyword_cms}" />
+<include file="Common:comHead" />
+<link href="/Public/css/main.css" rel="stylesheet" />
+<link href="/Public/css/doubleDate.css" rel="stylesheet" />
+<link href="/Public/css/theme.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrap"> <include file="Common:head" /> 
+  <!--头部end--> 
+  <include file="Common:left" /> 
+  <!--左边end-->
+  <div class="center_r">
+    <div class="center">
+      <div class="center_r_t">您的位置：<a href="{:U('Access/index')}" class="a1">权限管理</a>>>管理员列表</div>
+      <div class="center_t">
+          
+          <table width="100%" border="0" cellpadding="0" cellspacing="0" class="center_t" style="word-break:break-all; word-wrap:break-all; margin-top: 10px;">
+  <tr class="center_t_t">
+    <td class="td1" >AID</td>
+    <td >账号</td>
+    <td >状态</td>
+    <td >备注</td>
+    <td >开通时间</td>
+    
+    <td class="td2" width="135">操作</td>
+  </tr>
+  <volist name="list" id="vo">
+  <tr class="center_t_d">
+    <td class="td1">{$vo.a_id}</td>
+    <td >{$vo.a_name}</td>
+    <td >{$vo.statusTxt}</td>
+    <td>{$vo.remark}</td>
+    <td>{$vo.create_time}</td>
+   
+    <td>
+    <if condition="$vo.a_name eq C('ADMIN_AUTH_KEY')">--
+                  <else/>
+<a href="__URL__/editAdmin?aid={$vo.a_id}">编辑</a><a link="__URL__/delAdmin?aid={$vo.a_id}" href="javascript:void(0)" name="{$vo.a_name}" class="del">删除</a></if><a href="{:U('Access/ins',array('aid'=>$vo[a_id]))}">查看</a>
+                
+    
+    </td>
+  </tr>
+  </volist>
+  
+</table>
+        
+      </div>
+    </div>
+    <div class="foot"> <include file="Common:foot" /> </div>
+  </div>
+</div>
+<script>
+    $(".del").click(function(){
+        var n=$(".del").attr("name");
+        if(confirm("您确定要删除改管理员["+n+"]吗？")){
+            window.location.href=$(".del").attr("link");
+        }
+    });
+    
+</script>
+</body>
+</html>

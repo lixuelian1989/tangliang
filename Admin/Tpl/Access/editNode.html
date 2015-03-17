@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>添加编辑节点-权限管理-{$site.SITE_INFO.name}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{$systemConfig.SITE_INFO.description_cms}" />
+<meta name="keywords" content="{$systemConfig.SITE_INFO.keyword_cms}" />
+<include file="Common:comHead" />
+<link href="/Public/css/main.css" rel="stylesheet" />
+<link href="/Public/css/doubleDate.css" rel="stylesheet" />
+<link href="/Public/css/theme.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrap"> <include file="Common:head" /> <include file="Common:left" />
+  <div class="center_r">
+    <div class="center">
+      <div class="center_r_t">您的位置：<a href="{:U('Access/index')}" class="a1">权限管理</a>>><a class="a1" href="{:U('Access/nodelist')}">节点列表</a>>添加/编辑 节点</div>
+      <div class="center_t">
+        <form action="" method="post">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" class="center_t tab">
+            <tr>
+              <td width="120">名称：</td>
+              <td><input name="name" type="text" class="input" size="40" value="{$info.name}" />
+                英文
+                ，为MODEL_NAME的时候首字母大写</td>
+            </tr>
+            <tr>
+              <td>显示名：</td>
+              <td><input class="input" name="title" type="text" size="40" value="{$info.title}" />
+                中
+                英文均可</td>
+            </tr>
+            <tr>
+              <td>状态：</td>
+              <td><select name="status" style="width: 80px;">
+                  <if condition="$info.status eq 
+1">
+                    <option value="1" selected>启用</option>
+                    <option value="0">禁用</option>
+                    <else/>
+                    <option value="1">启用</option>
+                    <option 
+value="0" selected>禁用</option>
+                  </if>
+                </select>
+                如果禁用那么只有超级管理员才可以访问，其他用户都无权访问</td>
+            </tr>
+            <tr>
+              <td>是否在菜单中显示</td>
+              <td><label><input type="radio" name="is_menu" id="is_menu" value="1" 
+                  <if condition="$info.is_menu eq 1">checked</if>
+                  />是</label>
+                <label><input type="radio" name="is_menu" id="is_menu" value="0" 
+                  <if condition="$info.is_menu eq 0">checked</if>
+                  />否</label></td>
+            </tr>
+            <tr>
+              <td>类型：</td>
+              <td><select name="level" style="min-width: 80px;">
+                  {$info.levelOption}
+                </select>
+                项目
+                （GROUP_NAME;  模块(MODEL_NAME); 操作（ACTION_NAME）</td>
+            </tr>
+            <tr>
+              <td>父级节点：</td>
+              <td><select name="pid" style="min-width: 80px;">
+                  {$info.pidOption}
+                </select></td>
+            </tr>
+            <tr>
+              <td>显示排序：</td>
+              <td><input class="input" name="sort" type="text" size="40" value="{$info.sort}" /></td>
+            </tr>
+            <tr>
+              <td>描 述：</td>
+              <td><textarea name="remark" style="width: 400px;">{$info.remark}</textarea></td>
+            </tr>
+            <tr>
+              <td colspan="2"><input type="submit" value="提交" class="btn submit" /></td>
+            </tr>
+          </table>
+          <input type="hidden" name="id" value="{$info.id}"/>
+        </form>
+      </div>
+    </div>
+    <div class="foot"> <include file="Common:foot" /> </div>
+  </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $("select[name='level']").change(function(){
+            var level=$(this).val();
+            
+            $("select[name='pid']>option").attr("disabled","disabled");
+            if(level==1){
+                $("select[name='pid']>option[value='0']").removeAttr("disabled").attr("selected","selected");
+            }else if(level==2){
+                
+                $("select[name='pid']>option[level='1']").removeAttr("disabled");
+            }else{
+                $("select[name='pid']>option[level='2']").removeAttr("disabled");
+            }
+        });
+
+        $(".submit").click(function(){
+            commonAjaxSubmit();
+        });
+    });
+</script>
+</body>
+</html>
